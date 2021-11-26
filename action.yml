@@ -1,16 +1,16 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Node-RED Scorecard'
+description: 'Run the scorecard tests'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  package:  # id of input
+    description: 'name of npm pacakge to test'
     required: true
     default: 'World'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  scorecard: # id of output
+    description: 'The scorecard.json'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.package }}
